@@ -10,11 +10,21 @@ void QuickSortTest::prepare(int problem_size)
 	size = problem_size;
 	array = new int[problem_size];
 	
-	srand(time(NULL));
-	
-	for(int i = 0; i < problem_size; i++)
+	if(sortCase == 1)
 	{
-		array[i] = rand() % problem_size;
+		srand(time(NULL));
+		for(int i = 0; i < problem_size; i++)
+		{
+			array[i] = rand() % problem_size;
+		}	 	  
+	}
+	else if (sortCase == 2)
+	{
+		for(int i = 0; i < problem_size; i++)
+		{
+			array[i] = (problem_size-1)-i;
+			//array[i] = i;
+		}
 	}
 }
 

@@ -9,6 +9,8 @@ void QuickSort::Sort(int *array, int left, int right)
 	int i = left - 1;
 	int j = right + 1;
 	int pivot = array[(left+right)/2];
+	//int pivot = array[left];
+	//int pivot = array[right];
 	
 	while(1)
 	{

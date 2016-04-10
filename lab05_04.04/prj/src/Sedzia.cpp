@@ -6,6 +6,7 @@
 #include "Stos_test.h"
 #include "Kolejka_test.h"
 #include "QuickSortTest.h"
+#include "MergeSortTest.h"
 
 #include <unistd.h>  // to make Linux wait because searching is too fast
 
@@ -66,9 +67,32 @@ void Sedzia::setOffQueue(int how_many) {
   kolejka_testowa.prepare(how_many);
 }
 
-void Sedzia::setOffSorter(int how_many, int trials_count) 
+void Sedzia::setOffSorter(int how_many, int trials_count, int sortCase) 
 {
-	QuickSortTest sorter_testowy;
+	QuickSortTest *sorter_testowy;
+	Stoper timer;
+	for(int i = 0; i < trials_count; i++)
+	{
+		if(sortCase == 1)
+		{
+			sorter_testowy = new QuickSortTest(1);
+		}
+		else if (sortCase == 2)
+		{
+			sorter_testowy = new QuickSortTest(2);
+		}
+		sorter_testowy->prepare(how_many);
+		timer.start();
+		sorter_testowy->run();
+		timer.stop();
+		std::cout << timer.getElapsedTime()/1000000.0 << std::endl;		
+		delete sorter_testowy;
+	}
+}
+
+void Sedzia::setOffMergeSorter(int how_many, int trials_count)
+{
+	MergeSortTest sorter_testowy;
 	Stoper timer;
 	for(int i = 0; i < trials_count; i++)
 	{
@@ -76,7 +100,7 @@ void Sedzia::setOffSorter(int how_many, int trials_count)
 		timer.start();
 		sorter_testowy.run();
 		timer.stop();
-		std::cout << timer.getElapsedTime()/1000000.0 << std::endl;		
+		std::cout << timer.getElapsedTime()/1000000.0 << std::endl;	
 	}
 }
 

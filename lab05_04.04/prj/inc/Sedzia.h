@@ -61,7 +61,9 @@ class Sedzia {
    */
   void setOffQueue(int how_many);
   
-  void setOffSorter(int how_many, int trials_count);
+  void setOffSorter(int how_many, int trials_count, int sortCase);
+  
+  void setOffMergeSorter(int how_many, int trials_count);
 };
 
 #endif  // LAB03_14_03_PRJ_INC_SEDZIA_H_

@@ -46,27 +46,39 @@ int main(int argc, char **argv) {
 
   Sedzia referee;
   int trials_count = 10;
-  QuickSortTest sorter;
 
   // dziesiec, tysiac, sto tysiecy, milion, milard
-  Lista lista;// = new List();
+  Lista lista;
   lista.add("10",0);
   lista.add("100",1);
   lista.add("1000",2);
   lista.add("100000",3);
   lista.add("1000000",4);
   lista.add("1000000000",5);
-  //lista.print();
+  
+  // MERGE SORT TEST
   for(int i=0; i < 5; i++)
   {
 	  std::cout << "Sortowanie " << lista.get(i) << " elementów:" << std::endl;
-	  referee.setOffSorter(atoi((lista.get(i)).c_str()), trials_count);
-	  //std::cout << atoi((lista.get(i)).c_str()) << std::endl;
+	  referee.setOffMergeSorter(atoi((lista.get(i)).c_str()), trials_count);
   }
-  /*sorter.prepare(atoi((lista.get(1)).c_str()));
-  sorter.Show();
-  sorter.run();
-  sorter.Show();*/
+  
+  //  QUICK SORT TEST
+  /*int sortCase = 2; // 1- avarage case, 2- pesimistic case
+  if(sortCase == 1)
+  {
+	  std::cout << "Sortowanie - przypadek przecietny" << std::endl;	  
+  }
+  else if (sortCase == 2)
+  {
+	  std::cout << "Sortowanie - przypadek pesymistyczny" << std::endl;  
+  }
+  for(int i=0; i < 5; i++)
+  {
+	  std::cout << "Sortowanie " << lista.get(i) << " elementów:" << std::endl;
+	  referee.setOffSorter(atoi((lista.get(i)).c_str()), trials_count, sortCase);
+  }*/
+  
   
   //int data_sizes[5]= {10, 1000, 100000, 1000000, 1000000000};
 
